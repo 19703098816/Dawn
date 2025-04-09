@@ -1,0 +1,72 @@
+[
+    {
+        "title": "Clean Code: A Handbook of Agile Software Craftsmanship",
+        "author": "Robert C. Martin",
+        "description": "This book is a cornerstone in the software development world. It provides in - depth insights into writing clean, maintainable code. Through numerous examples and practical advice, Martin teaches developers how to structure code, name variables and functions effectively, and follow best practices in agile software craftsmanship.",
+        "price": 39.99,
+        "publisher": "Tech Publications"
+    },
+    {
+        "title": "The Pragmatic Programmer",
+        "author": "Andrew Hunt, David Thomas",
+        "description": "A timeless classic for programmers, this book offers a wealth of practical wisdom. It covers a wide range of topics from programming techniques to career growth. Hunt and Thomas share their experiences and insights, guiding readers on how to become more effective and efficient software professionals.",
+        "price": 29.99,
+        "publisher": "Addison - Wesley Professional"
+    },
+    {
+        "title": "Designing Data - Intensive Applications",
+        "author": "Martin Kleppmann",
+        "description": "Kleppmann's work is a comprehensive guide for building data - driven applications. It explores the intricacies of distributed systems, database design, and scalability. With detailed explanations and real - world examples, this book helps developers understand how to handle large - scale data and build reliable, high - performance applications.",
+        "price": 49.99,
+        "publisher": "O'Reilly Media"
+    },
+    {
+        "title": "Code Complete: A Practical Handbook of Software Construction",
+        "author": "Steve McConnell",
+        "description": "This book is a comprehensive resource for software construction. McConnell delves into the details of writing high - quality code, covering topics such as code organization, coding standards, and debugging techniques. It is an essential guide for both novice and experienced developers aiming to improve their coding skills.",
+        "price": 34.99,
+        "publisher": "Microsoft Press"
+    },
+    {
+        "title": "Refactoring: Improving the Design of Existing Code",
+        "author": "Martin Fowler",
+        "description": "Fowler's book on refactoring is a must - have for any developer working on legacy codebases. It provides a systematic approach to improving the design of existing code without changing its external behavior. Through numerous case studies and practical refactoring techniques, Fowler shows how to make code more maintainable and efficient.",
+        "price": 32.99,
+        "publisher": "Addison - Wesley Professional"
+    },
+    {
+        "title": "The Mythical Man - Month: Essays on Software Engineering",
+        "author": "Frederick P. Brooks Jr.",
+        "description": "A legendary book in software engineering, this collection of essays offers profound insights into the challenges of large - scale software projects. Brooks shares his experiences and lessons learned, discussing topics like project management, team organization, and the nature of software development. It is a valuable read for anyone involved in software projects.",
+        "price": 24.99,
+        "publisher": "Addison - Wesley Professional"
+    },
+    {
+        "title": "Introduction to Algorithms",
+        "author": "Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein",
+        "description": "This is a comprehensive textbook on algorithms. It covers a wide range of algorithms from basic sorting and searching to advanced topics like graph algorithms and cryptography. With clear explanations and numerous examples, it is an essential resource for students and professionals interested in understanding the principles of algorithms.",
+        "price": 59.99,
+        "publisher": "MIT Press"
+    },
+    {
+        "title": "Clean Architecture: A Craftsman's Guide to Software Structure and Design",
+        "author": "Robert C. Martin",
+        "description": "In this book, Martin focuses on software architecture. He provides guidelines on how to create clean, maintainable architectures that can withstand the test of time. By emphasizing the separation of concerns and the importance of software design principles, Martin helps developers build better - structured applications.",
+        "price": 37.99,
+        "publisher": "Prentice Hall"
+    },
+    {
+        "title": "Domain - Driven Design: Tackling Complexity in the Heart of Software",
+        "author": "Eric Evans",
+        "description": "Evans' book on domain - driven design is a revolutionary approach to software development. It focuses on understanding the business domain and creating software models that accurately represent it. By applying domain - driven design principles, developers can build more effective and maintainable software systems.",
+        "price": 42.99,
+        "publisher": "Addison - Wesley Professional"
+    },
+    {
+        "title": "Effective Java",
+        "author": "Joshua Bloch",
+        "description": "This book is a must - read for Java developers. Bloch provides a collection of best practices and effective techniques for writing high - quality Java code. It covers topics such as object - oriented design, memory management, and concurrency, helping Java developers write more robust and efficient programs.",
+        "price": 36.99,
+        "publisher": "Addison - Wesley Professional"
+    }
+]
