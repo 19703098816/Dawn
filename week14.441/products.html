@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyShop - Products</title>
+    <style>
+        /* Variables */
+        :root {
+            --primary: #3498db;
+            --secondary: #2ecc71;
+            --dark: #2c3e50;
+            --light: #ecf0f1;
+            --danger: #e74c3c;
+            --success: #27ae60;
+            --warning: #f39c12;
+            --gray: #95a5a6;
+            --white: #ffffff;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --radius: 8px;
+            --transition: all 0.3s ease;
+        }
+
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navigation */
+        .navbar {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow);
+        }
+
+        .navbar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--white);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            transition: var(--transition);
+            font-weight: 500;
+        }
+
+        .nav-links a.active {
+            color: var(--secondary);
+        }
+
+        .nav-links a:hover {
+            color: var(--secondary);
+        }
+
+        .user-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        #cart-count {
+            background-color: var(--secondary);
+            color: var(--white);
+            border-radius: 50%;
+            padding: 0.2rem 0.5rem;
+            font-size: 0.8rem;
+        }
+
+        .hamburger {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            cursor: pointer;
+            width: 30px;
+            height: 30px;
+            position: relative;
+        }
+
+        .hamburger-icon {
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            background-color: var(--white);
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .hamburger-icon::before,
+        .hamburger-icon::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            background-color: var(--white);
+            transition: var(--transition);
+        }
+
+        .hamburger-icon::before {
+            top: -8px;
+        }
+
+        .hamburger-icon::after {
+            bottom: -8px;
+        }
+
+        .hamburger.active .hamburger-icon {
+            background-color: transparent;
+        }
+
+        .hamburger.active .hamburger-icon::before {
+            transform: rotate(45deg);
+            top: 0;
+        }
+
+        .hamburger.active .hamburger-icon::after {
+            transform: rotate(-45deg);
+            bottom: 0;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 0.6rem 1.2rem;
+            border-radius: var(--radius);
+            text-decoration: none;
+            cursor: pointer;
+            transition: var(--transition);
+            border: none;
+            font-weight: 500;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid var(--white);
+            color: var(--white);
+        }
+
+        .btn-outline:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        .btn-danger {
+            background-color: var(--danger);
+            color: var(--white);
+        }
+
+        .btn-danger:hover {
+            background-color: #c0392b;
+        }
+
+        /* Products Grid */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .product-card {
+            background-color: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 1.5rem;
+        }
+
+        .product-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark);
+        }
+
+        .product-price {
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .product-description {
+            color: var(--gray);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .quantity-controls {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .quantity-btn {
+            width: 35px;
+            height: 35px;
+            background-color: var(--light);
+            border: none;
+            font-size: 1rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+        }
+
+        .quantity-btn:hover {
+            background-color: #ddd;
+        }
+
+        .quantity-input {
+            width: 50px;
+            text-align: center;
+            margin: 0 0.5rem;
+            padding: 0.5rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--dark);
+            color: var(--white);
+            padding: 2rem 0;
+            margin-top: auto;
+        }
+
+        .footer .container {
+            text-align: center;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: var(--dark);
+                flex-direction: column;
+                padding: 1rem;
+                gap: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: block;
+            }
+        }
+
+        /* Auth Container Styles */
+        #login-container {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">MyShop</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="products.html" class="active">Products</a>
+                <a href="cart.html">Cart <span id="cart-count">0</span></a>
+                <div class="user-section">
+                    <span id="username-display">Guest</span>
+                    <a href="login.html" id="login-link" class="btn btn-outline">Login</a>
+                    <a href="#" id="logout-link" class="btn btn-outline">Logout</a>
+                </div>
+            </div>
+            <button class="hamburger" aria-label="Toggle menu">
+                <span class="hamburger-icon"></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- 产品列表 -->
+    <main class="products-page">
+        <div class="container">
+            <h1>Our Products</h1>
+            <div class="products-grid" id="products-grid">
+                <!-- 产品通过 JavaScript 加载 -->
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2023 MyShop. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Management - Dawn's RTO Training</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .order-banner { margin-bottom: 24px; }
+        .order-stats { display: flex; gap: 32px; margin: 24px 0; }
+        .order-stat-box { background: #f5f7fa; border-radius: 8px; padding: 18px 32px; text-align: center; box-shadow: 0 2px 8px #0001; }
+        .order-list { margin-top: 32px; }
+        .order-card { display: flex; align-items: center; background: #fff; border-radius: 10px; box-shadow: 0 2px 8px #0001; margin-bottom: 24px; padding: 18px; gap: 24px; }
+        .order-card img { width: 90px; height: 90px; object-fit: cover; border-radius: 8px; }
+        .order-info { flex: 1; }
+        .order-actions { text-align: right; }
+        .faq-section { background: #f5f7fa; border-radius: 10px; padding: 24px; margin-top: 40px; }
+        .faq-section h3 { margin-top: 0; }
+        .order-empty { text-align: center; margin: 48px 0; }
+        .order-empty img { width: 180px; opacity: 0.7; }
+        .footer { margin-top: 48px; background: #223a5f; color: #fff; padding: 24px 0; text-align: center; border-radius: 10px; }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo" style="display:flex;align-items:center;gap:10px;">
+                <img src="images/logo.jpg" alt="Logo" style="height:32px;width:auto;vertical-align:middle;">
+                Dawn's RTO Training
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="cart.html">Cart <span id="cart-count">0</span></a>
+                <a href="order-management.html" class="active">Orders</a>
+                <a href="login.html" id="login-link">Login</a>
+                <a href="#" id="logout-link" style="display: none;">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Banner Image -->
+    <div class="order-banner">
+        <img src="images/programming.jpg" alt="Order Banner" style="width:100%;max-height:260px;object-fit:cover;border-radius:10px;">
+    </div>
+
+    <!-- Page Intro -->
+    <div class="container">
+        <h1 style="margin-bottom:8px;">My Orders</h1>
+        <div id="user-info" style="margin-bottom:16px;color:#555;font-size:1.1em;"></div>
+        <div style="margin-bottom:24px;">
+            <button id="clear-orders" class="btn btn-danger" style="margin-right:12px;">Clear Cart & Orders</button>
+            <button id="logout-btn" class="btn btn-outline">Logout</button>
+        </div>
+        <p style="color:#555;font-size:1.1em;">Welcome to your order management center. Here you can view your order history, download order details, and track your learning journey with Dawn's RTO Training.</p>
+    </div>
+
+    <!-- Order Stats -->
+    <div class="container order-stats" id="order-stats">
+        <div class="order-stat-box">
+            <div style="font-size:2em;font-weight:bold;" id="order-total">0</div>
+            <div>Total Orders</div>
+        </div>
+        <div class="order-stat-box">
+            <div style="font-size:2em;font-weight:bold;" id="order-amount">$0.00</div>
+            <div>Total Spent</div>
+        </div>
+        <div class="order-stat-box">
+            <div style="font-size:1.2em;font-weight:bold;" id="order-last">-</div>
+            <div>Last Order</div>
+        </div>
+    </div>
+
+    <!-- Order List -->
+    <section class="order-list container" id="order-list-section">
+        <h2 style="margin-bottom:18px;">Order History</h2>
+        <div id="orders-container">
+            <!-- Orders will be loaded here -->
+        </div>
+        <div class="order-empty" id="empty-orders" style="display:none;">
+            <img src="images/cybersecurity.jpg" alt="No Orders">
+            <p style="color:#888;font-size:1.1em;margin-top:12px;">You have not placed any orders yet.<br>Start learning and shopping now!</p>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <div class="container faq-section">
+        <h3>Frequently Asked Questions</h3>
+        <ul>
+            <li><b>How do I download my order details?</b> Click the "Download Order" button next to each order.</li>
+            <li><b>How can I contact support?</b> Email us at <a href="mailto:info@dawnsrtotraining.edu.au">info@dawnsrtotraining.edu.au</a> or call +61 2 9876 5432.</li>
+            <li><b>How long does it take to process my order?</b> Orders are processed within 1-2 business days.</li>
+            <li><b>Can I request an invoice?</b> Yes, please contact our support team for invoice requests.</li>
+        </ul>
+    </div>
+
+    <!-- Footer -->
+    <div class="footer">
+        Dawn's RTO Training &copy; 2024 | RTO Registration No: 12345 | 123 Education Street, Sydney, NSW 2000, Australia
+    </div>
+
+    <script src="app.js"></script>
+    <script>
+    // 动态统计和空订单图片逻辑
+    document.addEventListener('DOMContentLoaded', function() {
+        setTimeout(function() {
+            var ordersContainer = document.getElementById('orders-container');
+            var emptyOrders = document.getElementById('empty-orders');
+            var orderStats = document.getElementById('order-stats');
+            var orderTotal = document.getElementById('order-total');
+            var orderAmount = document.getElementById('order-amount');
+            var orderLast = document.getElementById('order-last');
+            var orders = JSON.parse(localStorage.getItem('orders')) || [];
+            var currentUser = JSON.parse(sessionStorage.getItem('currentUser')) || JSON.parse(localStorage.getItem('currentUser'));
+            var userOrders = orders.filter(o => o.username === (currentUser && currentUser.username));
+            // 统计
+            orderTotal.textContent = userOrders.length;
+            orderAmount.textContent = '$' + userOrders.reduce((sum, o) => sum + (o.total || 0), 0).toFixed(2);
+            if(userOrders.length > 0) {
+                var lastOrder = userOrders[userOrders.length-1];
+                orderLast.textContent = new Date(lastOrder.date).toLocaleDateString();
+            } else {
+                orderLast.textContent = '-';
+            }
+            // 空订单图片
+            if (ordersContainer && emptyOrders && userOrders.length === 0) {
+                emptyOrders.style.display = 'block';
+            }
+            // 渲染订单卡片
+            if(userOrders.length > 0) {
+                var kitImgs = ['course1.jpg','course2.jpg','course3.jpg','course4.jpg','course5.jpg','course6.jpg','course7.jpg'];
+                ordersContainer.innerHTML = userOrders.map(function(order, idx) {
+                    var img = kitImgs[idx % kitImgs.length];
+                    return `<div class='order-card'>
+                        <img src='images/${img}' alt='Order'>
+                        <div class='order-info'>
+                            <div><b>Order #${order.id}</b></div>
+                            <div>Date: ${new Date(order.date).toLocaleString()}</div>
+                            <div>Total: $${order.total.toFixed(2)}</div>
+                            <div>Items: ${order.items.map(i=>i.name+ ' x'+i.quantity).join(', ')}</div>
+                        </div>
+                        <div class='order-actions'>
+                            <button class='btn btn-primary download-order' data-order-id='${order.id}'>Download Order</button>
+                        </div>
+                    </div>`;
+                }).join('');
+                // 绑定下载按钮
+                document.querySelectorAll('.download-order').forEach(function(btn){
+                    btn.addEventListener('click', function(){
+                        if(window.DawnDownloadOrder756) window.DawnDownloadOrder756(this.dataset.orderId);
+                    });
+                });
+            }
+        }, 500);
+    });
+
+    // 显示用户名
+    var currentUser = JSON.parse(sessionStorage.getItem('currentUser')) || JSON.parse(localStorage.getItem('currentUser'));
+    var userInfo = document.getElementById('user-info');
+    if(currentUser && userInfo) {
+        userInfo.textContent = 'Logged in as: ' + (currentUser.name || currentUser.username);
+    }
+    // 认证检查
+    if(!currentUser) {
+        window.location.href = 'login.html';
+    }
+    // 清空购物车和订单历史
+    var clearBtn = document.getElementById('clear-orders');
+    if(clearBtn) {
+        clearBtn.onclick = function() {
+            localStorage.removeItem('cart');
+            localStorage.removeItem('orders');
+            location.reload();
+        };
+    }
+    // 退出登录
+    var logoutBtn = document.getElementById('logout-btn');
+    if(logoutBtn) {
+        logoutBtn.onclick = function() {
+            if(window.DawnLogout756) window.DawnLogout756();
+        };
+    }
+    </script>
+</body>
+</html> 

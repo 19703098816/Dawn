@@ -1,0 +1,103 @@
+
+{
+    "courses": [
+        {
+            "id": "ICT50120",
+            "name": "Diploma of Information Technology",
+            "description": "Advanced IT qualification covering networking, programming, and system administration",
+            "duration": "52 weeks",
+            "units": [
+                "BSBCRT512 - Originate and develop concepts",
+                "BSBXCS402 - Promote workplace cyber security awareness",
+                "BSBXTW401 - Lead and facilitate a team"
+            ],
+            "assessment": "Combination of written assessments, practical projects, and workplace observations",
+            "sampleProject": "Develop and implement a secure network infrastructure for a small business",
+            "image": "course1.jpg"
+        },
+        {
+            "id": "ICT50220",
+            "name": "Diploma of Information Technology (Advanced Networking)",
+            "description": "Specialized networking course focusing on enterprise network design and security",
+            "duration": "52 weeks",
+            "units": [
+                "ICTNWK529 - Install and manage complex ICT networks",
+                "ICTNWK536 - Plan, implement and test enterprise communication solutions",
+                "ICTNWK540 - Design, build and test network servers"
+            ],
+            "assessment": "Network design projects, security implementation tasks, and practical assessments",
+            "sampleProject": "Design and implement a secure enterprise network with redundancy",
+            "image": "course2.jpg"
+        },
+        {
+            "id": "ICT50320",
+            "name": "Diploma of Information Technology (Systems Administration)",
+            "description": "Comprehensive course on managing and maintaining IT systems and infrastructure",
+            "duration": "52 weeks",
+            "units": [
+                "ICTSAS527 - Manage client problems",
+                "ICTSAS526 - Review and update disaster recovery and contingency plans",
+                "ICTSAS524 - Develop, implement and evaluate systems and security protocols"
+            ],
+            "assessment": "System administration tasks, disaster recovery planning, and security implementation",
+            "sampleProject": "Develop and implement a comprehensive system administration strategy",
+            "image": "course3.jpg"
+        },
+        {
+            "id": "ICT50420",
+            "name": "Diploma of Information Technology (Programming)",
+            "description": "Advanced programming course covering multiple languages and development methodologies",
+            "duration": "52 weeks",
+            "units": [
+                "ICTPRG547 - Apply advanced programming skills in another language",
+                "ICTPRG549 - Apply intermediate object-oriented language skills",
+                "ICTPRG550 - Build advanced user interfaces"
+            ],
+            "assessment": "Programming projects, code reviews, and software development tasks",
+            "sampleProject": "Develop a full-stack web application with modern frameworks",
+            "image": "course4.jpg"
+        },
+        {
+            "id": "ICT50520",
+            "name": "Diploma of Information Technology (Database Design)",
+            "description": "Specialized course in database design, implementation, and management",
+            "duration": "52 weeks",
+            "units": [
+                "ICTDBS507 - Integrate databases with websites",
+                "ICTDBS506 - Design database models",
+                "ICTDBS505 - Monitor and improve knowledge management system"
+            ],
+            "assessment": "Database design projects, optimization tasks, and implementation assessments",
+            "sampleProject": "Design and implement a complex database system for an e-commerce platform",
+            "image": "course5.jpg"
+        },
+        {
+            "id": "ICT50620",
+            "name": "Diploma of Information Technology (Cyber Security)",
+            "description": "Comprehensive course on cyber security principles, risk management, and secure systems design.",
+            "duration": "52 weeks",
+            "units": [
+                "ICTSAS602 - Implement change management processes",
+                "ICTSAS601 - Implement server virtualization for a sustainable ICT system",
+                "ICTNWK616 - Manage security, privacy and compliance of cloud service deployment"
+            ],
+            "assessment": "Cyber security projects, risk analysis, and secure system implementation tasks",
+            "sampleProject": "Develop a cyber security policy and implement secure access controls for an organization",
+            "image": "course6.jpg"
+        },
+        {
+            "id": "ICT50720",
+            "name": "Diploma of Information Technology (Web Development)",
+            "description": "Specialized course in modern web development, including front-end and back-end technologies.",
+            "duration": "52 weeks",
+            "units": [
+                "ICTWEB513 - Build dynamic websites",
+                "ICTWEB514 - Create dynamic web pages",
+                "ICTWEB515 - Implement web services"
+            ],
+            "assessment": "Web development projects, code reviews, and deployment tasks",
+            "sampleProject": "Develop and deploy a responsive e-commerce website with user authentication",
+            "image": "course7.jpg"
+        }
+    ]
+} 

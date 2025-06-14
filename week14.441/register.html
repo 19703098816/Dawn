@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Dawn's RTO Training</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">Dawn's RTO Training</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="cart.html">Cart <span id="cart-count">0</span></a>
+                <a href="order-management.html">Orders</a>
+                <a href="login.html" id="login-link">Login</a>
+                <a href="#" id="logout-link" style="display: none;">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Registration Form -->
+    <section class="form-section">
+        <div class="container">
+            <div class="form-container">
+                <h2>Register for Dawn's RTO Training</h2>
+                <form id="register-form">
+                    <div class="form-group">
+                        <label for="username">Username</label>
+                        <input type="text" id="username" name="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" name="password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="confirm-password">Confirm Password</label>
+                        <input type="password" id="confirm-password" name="confirm-password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Register</button>
+                </form>
+                <p class="form-footer">
+                    Already have an account? <a href="login.html">Login here</a>
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check if user is already logged in
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            if (currentUser) {
+                window.location.href = 'index.html';
+                return;
+            }
+
+            // Setup registration form
+            const registerForm = document.getElementById('register-form');
+            if (registerForm) {
+                registerForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    const username = document.getElementById('username').value.trim();
+                    const email = document.getElementById('email').value.trim();
+                    const phone = document.getElementById('phone').value.trim();
+                    const password = document.getElementById('password').value;
+                    const confirmPassword = document.getElementById('confirm-password').value;
+
+                    console.log('Registration attempt with:', { username, email, phone });
+
+                    // Validate password match
+                    if (password !== confirmPassword) {
+                        alert('Passwords do not match!');
+                        return;
+                    }
+
+                    // Get existing users
+                    let users = JSON.parse(localStorage.getItem('users')) || [];
+                    console.log('Current users:', users);
+
+                    // Check if username or email already exists
+                    if (users.some(user => user.username === username || user.email === email)) {
+                        console.log('Username or email already exists');
+                        alert('Username or email already exists!');
+                        return;
+                    }
+
+                    // Create new user
+                    const newUser = {
+                        username,
+                        email,
+                        phone,
+                        password,
+                        sessionId: null,
+                        lastActivity: null
+                    };
+
+                    console.log('Creating new user:', newUser);
+
+                    // Add user to users array
+                    users.push(newUser);
+                    localStorage.setItem('users', JSON.stringify(users));
+
+                    console.log('Updated users list:', users);
+
+                    // Show success message
+                    alert('Registration successful! Please login.');
+                    window.location.href = 'login.html';
+                });
+            }
+        });
+    </script>
+    <script src="app.js"></script>
+</body>
+</html>

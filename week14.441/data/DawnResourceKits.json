@@ -1,0 +1,85 @@
+{
+    "author": "Dawn",
+    "resourceKits": [
+        {
+            "id": "RK001",
+            "name": "Network Security Fundamentals",
+            "unitCode": "ICTNWK529",
+            "price": 299.99,
+            "description": "Comprehensive guide covering network security principles, firewalls, VPNs, and intrusion detection systems for IT professionals.",
+            "image": "network-security.jpg"
+        },
+        {
+            "id": "RK002",
+            "name": "Database Design Essentials",
+            "unitCode": "ICTDBS506",
+            "price": 249.99,
+            "description": "Essential resource for database design, normalization, and optimization techniques with practical examples and best practices.",
+            "image": "database-design.jpg"
+        },
+        {
+            "id": "RK003",
+            "name": "Web Development Toolkit",
+            "unitCode": "ICTPRG550",
+            "price": 199.99,
+            "description": "Modern web development resources covering HTML5, CSS3, and JavaScript frameworks with responsive design principles.",
+            "image": "web-dev.jpg"
+        },
+        {
+            "id": "RK004",
+            "name": "System Administration Guide",
+            "unitCode": "ICTSAS524",
+            "price": 279.99,
+            "description": "Complete guide to system administration, server management, and security protocols for enterprise environments.",
+            "image": "sys-admin.jpg"
+        },
+        {
+            "id": "RK005",
+            "name": "Programming Fundamentals",
+            "unitCode": "ICTPRG549",
+            "price": 229.99,
+            "description": "Essential programming concepts and object-oriented design principles for beginners with practical coding exercises.",
+            "image": "programming.jpg"
+        },
+        {
+            "id": "RK006",
+            "name": "Cloud Computing Essentials",
+            "unitCode": "ICTNWK536",
+            "price": 259.99,
+            "description": "Comprehensive guide to cloud services, deployment models, and best practices for cloud implementation strategies.",
+            "image": "cloud-computing.jpg"
+        },
+        {
+            "id": "RK007",
+            "name": "Cybersecurity Framework",
+            "unitCode": "BSBXCS402",
+            "price": 299.99,
+            "description": "Detailed cybersecurity framework covering threat assessment, risk management, and mitigation strategies for organizations.",
+            "image": "cybersecurity.jpg"
+        },
+        {
+            "id": "RK008",
+            "name": "Project Management Toolkit",
+            "unitCode": "BSBCRT512",
+            "price": 199.99,
+            "description": "Essential project management resources for IT professionals with templates, tools, and best practices.",
+            "image": "project-management.jpg"
+        },
+        {
+            "id": "RK009",
+            "name": "Team Leadership Guide",
+            "unitCode": "BSBXTW401",
+            "price": 179.99,
+            "description": "Practical guide to leading IT teams with communication strategies and project management techniques.",
+            "image": "team-leadership.jpg"
+        },
+        {
+            "id": "RK010",
+            "name": "Disaster Recovery Planning",
+            "unitCode": "ICTSAS526",
+            "price": 249.99,
+            "description": "Comprehensive guide to developing and implementing disaster recovery strategies for IT infrastructure.",
+            "image": "disaster-recovery.jpg"
+        }
+    ]
+} 

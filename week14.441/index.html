@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dawn's RTO Training</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo" style="display:flex;align-items:center;gap:10px;">
+                <img src="images/logo.jpg" alt="Logo" style="height:32px;width:auto;vertical-align:middle;">
+                Dawn's RTO Training
+            </a>
+            <div class="nav-links">
+                <a href="index.html" class="active">Home</a>
+                <a href="cart.html">Cart <span id="cart-count">0</span></a>
+                <a href="order-management.html">Orders</a>
+                <a href="login.html" id="login-link">Login</a>
+                <a href="#" id="logout-link" style="display: none;">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Welcome to Dawn's RTO Training</h1>
+            <p>Your trusted partner in IT education and training resources</p>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section class="courses-section">
+        <div class="container">
+            <h2>Our Courses</h2>
+            <div id="courses-container">
+                <!-- Courses will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Resource Kits Section -->
+    <section class="resource-kits-section">
+        <div class="container">
+            <h2>Training Resource Kits</h2>
+            <div id="resource-kits-container" class="resource-kits-grid">
+                <!-- Resource kits will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- To-do List Section -->
+    <section class="todo-section">
+        <div class="container">
+            <div class="todo-list">
+                <h3>Order Tasks</h3>
+                <div id="todo-items">
+                    <!-- To-do items will be added here -->
+                </div>
+                <div class="todo-input">
+                    <input type="text" id="new-todo" placeholder="Add a new task...">
+                    <button class="btn btn-primary" id="add-todo">Add</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Dawn's RTO Training</h3>
+                    <p>RTO Registration Number: 12345</p>
+                    <p>Address: 123 Education Street, Sydney, NSW 2000, Australia</p>
+                    <p>Phone: +61 2 9876 5432</p>
+                    <p>Email: info@dawnsrtotraining.edu.au</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="cart.html">Cart</a></li>
+                        <li><a href="order-management.html">Orders</a></li>
+                        <li><a href="login.html">Login</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p>For any inquiries, please contact us during business hours:</p>
+                    <p>Monday - Friday: 9:00 AM - 5:00 PM</p>
+                    <p>Saturday: 10:00 AM - 2:00 PM</p>
+                    <p>Sunday: Closed</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Dawn's RTO Training. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
